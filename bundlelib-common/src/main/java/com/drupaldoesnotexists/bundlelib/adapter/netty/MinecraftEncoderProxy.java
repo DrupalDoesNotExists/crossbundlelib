@@ -10,6 +10,17 @@ import org.jetbrains.annotations.NotNull;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+/**
+ * Custom channel handler used by the common
+ * channel injector implementation.
+ * <br />
+ * Delegates all encodings to the underlying
+ * passed bundle writer and Minecraft original
+ * encoder.
+ * @param <PACKET> Packet type.
+ * @param <BUNDLE> Bundle type.
+ * @param <WRITER> Writer type.
+ */
 public class MinecraftEncoderProxy<PACKET, BUNDLE extends Bundle<PACKET>,
         WRITER extends BundleWriter<PACKET, BUNDLE>> extends MessageToByteEncoder<PACKET> {
 

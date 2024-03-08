@@ -5,6 +5,14 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.function.BiConsumer;
 
+/**
+ * Common bundle writer used by old adapters
+ * that writes all the bundled packets sequentially
+ * to the single byte buffer by delegating encoding
+ * to the Minecraft original encoder multiple times.
+ * @param <PACKET> Packet type.
+ * @param <BUNDLE> Bundle type.
+ */
 public class SequentialBundleWriter<PACKET, BUNDLE extends Bundle<PACKET>>
         implements BundleWriter<PACKET, BUNDLE> {
 

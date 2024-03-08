@@ -9,6 +9,13 @@ import io.netty.channel.ChannelPipeline;
 import io.netty.handler.codec.MessageToByteEncoder;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Channel injector implementation that contains common
+ * logic suitable for multiple adapters.
+ * @param <PACKET> Packet type.
+ * @param <BUNDLE> Bundle type.
+ * @param <WRITER> Writer type.
+ */
 public class CommonChannelInjector<PACKET, BUNDLE extends Bundle<PACKET>,
         WRITER extends BundleWriter<PACKET, BUNDLE>> implements ChannelInjector {
 
