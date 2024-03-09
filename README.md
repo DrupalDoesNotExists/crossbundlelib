@@ -1,9 +1,3 @@
-<style>
-h1, h2, h3, h4, h5, h6 {
-    text-align: center;
-}
-</style>
-
 <div align="center">
     <h1 id="crossbundlelib">CrossBundleLib</h1>
     <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java" />
@@ -20,14 +14,10 @@ Minecraft versions via adapters and Gradle multi-project builds.
 
 **Now the library is in a state of proofing the concept! Feel free to provide any tests!**
 
-<center>
-
 | Minecraft version | BundleLib adapter                  |
 |-------------------|------------------------------------|
 | 1.20.x            | :x: (WORK IN PROGRESS)             |
 | 1.17.x            | :white_check_mark: bundlelib-v1_17 |
-
-</center>
 
 * [Abstract](#crossbundlelib)
 * [Installation](#installation)
@@ -136,6 +126,6 @@ Feel free to open an issue, discussion or PR.
 
 ## Special thanks
 
-* @dymeth for the amazing talks and ideas about enhancing the core concept.
+* @Dymeth for the amazing talks and ideas about enhancing the core concept.
 * [wiki.vg Protocol docs](https://wiki.vg/Protocol) for well-written Protocol specification.
 * @jacobo-mc for publishing the [Minecraft 1.18 decompiled remapped sources](https://github.com/jacobo-mc/mc_1.18.1_src/) on GitHub for reference.
