@@ -1,4 +1,4 @@
-package com.drupaldoesnotexists.bundlelib.impl.v1_17;
+package com.drupaldoesnotexists.bundlelib.impl.reobf;
 
 import com.drupaldoesnotexists.bundlelib.adapter.IterableBundle;
 import net.minecraft.network.FriendlyByteBuf;
@@ -6,10 +6,10 @@ import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import org.jetbrains.annotations.NotNull;
 
-public class Bundle17 extends IterableBundle<Packet<ClientGamePacketListener>>
+public class ReobfBundle extends IterableBundle<Packet<ClientGamePacketListener>>
         implements Packet<ClientGamePacketListener> {
 
-    public Bundle17(Iterable<Packet<ClientGamePacketListener>> packets) {
+    public ReobfBundle(Iterable<Packet<ClientGamePacketListener>> packets) {
         super(packets);
     }
 
