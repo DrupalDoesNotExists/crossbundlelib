@@ -24,6 +24,7 @@
             <option value="$PROJECT_DIR$/bundlelib-adapter" />
             <option value="$PROJECT_DIR$/bundlelib-common" />
             <option value="$PROJECT_DIR$/bundlelib-core" />
+            <option value="$PROJECT_DIR$/bundlelib-paperweight" />
             <option value="$PROJECT_DIR$/bundlelib-v1_17" />
           </set>
         </option>
