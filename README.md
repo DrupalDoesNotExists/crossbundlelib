@@ -1,7 +1,8 @@
+<!--suppress ALL -->
 <div align="center">
     <h1 id="crossbundlelib">CrossBundleLib</h1>
     <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java" />
-    <img src="https://img.shields.io/badge/Kotlin-0095D5?&style=for-the-badge&logo=kotlin&logoColor=white" alt="Kotlin" />
+    <img src="https://img.shields.io/badge/Kotlin-B026EB?&style=for-the-badge&logo=kotlin&logoColor=white" alt="Kotlin" />
     <img src="https://img.shields.io/badge/gradle-salad?style=for-the-badge&logo=gradle" alt="Gradle" />
 </div>
 
