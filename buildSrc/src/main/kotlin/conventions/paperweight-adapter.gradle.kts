@@ -12,7 +12,7 @@ val shadowPublication = publishing.publications.create<MavenPublication>("shadow
 }
 
 tasks {
-    assemble {
+    jar {
         dependsOn(reobfJar)
     }
 }
