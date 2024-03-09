@@ -1,7 +1,5 @@
 plugins {
     conventions.java
-    conventions.`maven-publish`
-    conventions.`default-maven-publication`
 }
 
 version = "1.0"
