@@ -126,6 +126,6 @@ Feel free to open an issue, discussion or PR.
 
 ## Special thanks
 
-* @Dymeth for the amazing talks and ideas about enhancing the core concept.
+* [@Dymeth](https://github.com/Dymeth) for the amazing talks and ideas about enhancing the core concept.
 * [wiki.vg Protocol docs](https://wiki.vg/Protocol) for well-written Protocol specification.
-* @jacobo-mc for publishing the [Minecraft 1.18 decompiled remapped sources](https://github.com/jacobo-mc/mc_1.18.1_src/) on GitHub for reference.
+* [@jacobo-mc](https://github.com/jacobo-mc) for publishing the [Minecraft 1.18 decompiled remapped sources](https://github.com/jacobo-mc/mc_1.18.1_src/) on GitHub for reference.
