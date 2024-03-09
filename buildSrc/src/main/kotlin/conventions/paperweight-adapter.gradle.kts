@@ -7,9 +7,9 @@ plugins {
     id("io.papermc.paperweight.userdev")
 }
 
-//val shadowPublication = publishing.publications.create<MavenPublication>("shadow") {
-//    from(components["java"])
-//}
+val shadowPublication = publishing.publications.create<MavenPublication>("shadow") {
+    from(components["java"])
+}
 
 tasks {
     assemble {
@@ -17,6 +17,6 @@ tasks {
     }
 }
 
-//shadow {
-//    component(shadowPublication)
-//}
+shadow {
+    component(shadowPublication)
+}
