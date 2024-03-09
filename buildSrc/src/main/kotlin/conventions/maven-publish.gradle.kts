@@ -14,6 +14,10 @@ publishing {
 
     publications {
         create<MavenPublication>("default") {
+            groupId = project.group.toString()
+            version = project.version.toString()
+            artifactId = project.name
+
             from(components["java"])
         }
     }
