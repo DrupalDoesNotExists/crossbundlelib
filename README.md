@@ -15,8 +15,6 @@ Minecraft versions via adapters and Gradle multi-project builds.
 
 **Now the library is in a state of proofing the concept! Feel free to provide any tests!**
 
-<div align="center">
-
 | Minecraft version | BundleLib adapter                  |
 |-------------------|------------------------------------|
 | 1.20.x            | :hammer:                           |
@@ -32,8 +30,6 @@ Minecraft versions via adapters and Gradle multi-project builds.
 | 1.10.x            | :hammer:                           |
 | 1.9.x             | :hammer:                           |
 | 1.8.x             | :hammer:                           |
-
-</div>
 
 * [Abstract](#crossbundlelib)
 * [Installation](#installation)
