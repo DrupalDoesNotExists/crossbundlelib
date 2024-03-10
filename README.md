@@ -68,7 +68,7 @@ so You have to schedule the task with scheduler or use some later
 events like `PlayerJoinEvent`.
 
 > :warning:
-> Because of the mechanism paperweight-based adapters under 1.17 use
+> Because of the mechanism paperweight-based adapters under 1.20 use
 > to identify compatibility with the current platform,
 > you should always specify the 1.20 adapter first in the adapter list!
 > Otherwise, some other non-native adapter will be used.
