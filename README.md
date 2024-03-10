@@ -136,6 +136,8 @@ CrossBundleLib is available under the [MIT license](LICENSE).
 Any kind of contributions is welcome.
 Feel free to open an issue, discussion or PR.
 
+Discussions are available under [their own tab](https://github.com/DrupalDoesNotExists/crossbundlelib/discussions).
+
 ## Special thanks
 
 * [@Dymeth](https://github.com/Dymeth) for the amazing talks and ideas about enhancing the core concept.
