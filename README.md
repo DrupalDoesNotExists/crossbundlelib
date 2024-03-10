@@ -18,9 +18,18 @@ Minecraft versions via adapters and Gradle multi-project builds.
 | Minecraft version | BundleLib adapter                  |
 |-------------------|------------------------------------|
 | 1.20.x            | :hammer:                           |
+| 1.19.x            | :white_check_mark: bundlelib-v1_19 |
 | 1.18.x            | :white_check_mark: bundlelib-v1_18 |
 | 1.17.x            | :white_check_mark: bundlelib-v1_17 |
 | 1.16.x            | :hammer:                           |
+| 1.15.x            | :hammer:                           |
+| 1.14.x            | :hammer:                           |
+| 1.13.x            | :hammer:                           |
+| 1.12.x            | :hammer:                           |
+| 1.11.x            | :hammer:                           |
+| 1.10.x            | :hammer:                           |
+| 1.9.x             | :hammer:                           |
+| 1.8.x             | :hammer:                           |
 
 * [Abstract](#crossbundlelib)
 * [Installation](#installation)
