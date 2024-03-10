@@ -21,7 +21,7 @@ Minecraft versions via adapters and Gradle multi-project builds.
 | 1.19.x            | :white_check_mark: bundlelib-v1_19 |
 | 1.18.x            | :white_check_mark: bundlelib-v1_18 |
 | 1.17.x            | :white_check_mark: bundlelib-v1_17 |
-| 1.16.x            | :hammer:                           |
+| 1.16.x            | :white_check_makr: bundlelib-v1_16 |
 | 1.15.x            | :hammer:                           |
 | 1.14.x            | :hammer:                           |
 | 1.13.x            | :hammer:                           |
