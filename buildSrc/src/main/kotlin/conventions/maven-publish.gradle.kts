@@ -11,4 +11,13 @@ publishing {
             name = "MavenInternal"
         }
     }
+
+    publications {
+        create<MavenPublication>("library") {
+            groupId = project.group.toString()
+            artifactId = project.name
+
+            from(components["java"])
+        }
+    }
 }
