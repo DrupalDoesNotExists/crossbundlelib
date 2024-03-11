@@ -9,6 +9,11 @@ import org.jetbrains.annotations.NotNull;
  */
 public interface ChannelInjector {
 
+    /**
+     * Inject custom handlers to the Netty channel.
+     * @param channel Channel.
+     * @throws Exception When something goes wrong.
+     */
     void inject(@NotNull Channel channel) throws Exception;
 
 }

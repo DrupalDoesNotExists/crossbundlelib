@@ -8,8 +8,15 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 
+/**
+ * .internal
+ */
 public class Bundle16 extends IterableBundle<Packet<PacketListenerPlayOut>> implements Packet<PacketListenerPlayOut> {
 
+    /**
+     * .ctor
+     * @param packets .ignored
+     */
     public Bundle16(Iterable<Packet<PacketListenerPlayOut>> packets) {
         super(packets);
     }
@@ -20,7 +27,7 @@ public class Bundle16 extends IterableBundle<Packet<PacketListenerPlayOut>> impl
     }
 
     @Override
-    public void a(PacketDataSerializer packetDataSerializer) throws IOException {}
+    public void a(PacketDataSerializer packetDataSerializer) {}
 
     @Override
     public void b(PacketDataSerializer packetDataSerializer) {}

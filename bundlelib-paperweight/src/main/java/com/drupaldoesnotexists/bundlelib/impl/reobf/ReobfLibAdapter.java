@@ -14,6 +14,14 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
 
+/**
+ * A common partial implementation for all paperweight-based adapters.
+ * Because of the remapping, it fixes a lot of boilerplate issues as all
+ * classes and packages are named the same.
+ * <br />
+ * INTERNAL USE ONLY!
+ * CAN'T BE USED AS A STANDALONE ADAPTER!
+ */
 public abstract class ReobfLibAdapter implements BundleLibAdapter<Packet<ClientGamePacketListener>> {
 
     @Override

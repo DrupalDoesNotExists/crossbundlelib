@@ -7,6 +7,9 @@ import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBundlePacket;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * .internal
+ */
 public class NativeBundleFactory implements BundleFactory<Packet<ClientGamePacketListener>> {
 
     @Override

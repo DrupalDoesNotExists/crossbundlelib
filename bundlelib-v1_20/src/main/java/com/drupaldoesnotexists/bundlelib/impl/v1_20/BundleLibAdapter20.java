@@ -11,6 +11,9 @@ import org.bukkit.craftbukkit.v1_20_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Adapter for 1.20.x
+ */
 public class BundleLibAdapter20 implements BundleLibAdapter<Packet<ClientGamePacketListener>> {
 
     @Override

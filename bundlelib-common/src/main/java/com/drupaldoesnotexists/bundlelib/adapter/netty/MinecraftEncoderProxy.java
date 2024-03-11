@@ -28,6 +28,12 @@ public class MinecraftEncoderProxy<PACKET, BUNDLE extends Bundle<PACKET>,
     private final Method encoderMethod;
     private final WRITER writer;
 
+    /**
+     * .ctor
+     * @param minecraftEncoder Minecraft default encoder handler.
+     * @param writer           Bundle writer to delegate to.
+     * @throws NoSuchMethodException When previous handler does not contain the proper "encode" method.
+     */
     public MinecraftEncoderProxy(@NotNull MessageToByteEncoder<PACKET> minecraftEncoder,
                                  @NotNull WRITER writer) throws NoSuchMethodException {
         this.minecraftEncoder = minecraftEncoder;
@@ -47,7 +53,7 @@ public class MinecraftEncoderProxy<PACKET, BUNDLE extends Bundle<PACKET>,
 
     @Override
     @SuppressWarnings("unchecked")
-    protected void encode(ChannelHandlerContext channelHandlerContext, PACKET packet, ByteBuf byteBuf) throws Exception {
+    protected void encode(ChannelHandlerContext channelHandlerContext, PACKET packet, ByteBuf byteBuf) {
         if (packet instanceof Bundle) {
             BUNDLE bundle = (BUNDLE) packet;
             this.writer.write(bundle, byteBuf, (pack, buf) -> delegate(channelHandlerContext, pack, buf));

@@ -6,6 +6,9 @@ import net.minecraft.server.v1_16_R3.Packet;
 import net.minecraft.server.v1_16_R3.PacketListenerPlayOut;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * .internal
+ */
 public class Bundle16Factory implements BundleFactory<Packet<PacketListenerPlayOut>> {
 
     @Override

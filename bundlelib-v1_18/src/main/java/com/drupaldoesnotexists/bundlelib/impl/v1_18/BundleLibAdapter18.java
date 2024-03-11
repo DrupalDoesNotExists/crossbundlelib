@@ -6,6 +6,9 @@ import org.bukkit.craftbukkit.v1_18_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Adapter for 1.18.x
+ */
 public class BundleLibAdapter18 extends ReobfLibAdapter {
 
     @Override

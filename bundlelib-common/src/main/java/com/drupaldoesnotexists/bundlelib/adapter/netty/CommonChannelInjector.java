@@ -24,6 +24,10 @@ public class CommonChannelInjector<PACKET, BUNDLE extends Bundle<PACKET>,
 
     private final WRITER writer;
 
+    /**
+     * .ctor
+     * @param bundleWriter Writer to delegate to
+     */
     public CommonChannelInjector(@NotNull WRITER bundleWriter) {
         this.writer = bundleWriter;
     }

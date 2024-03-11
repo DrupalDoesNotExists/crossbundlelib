@@ -13,6 +13,9 @@ import org.bukkit.craftbukkit.v1_16_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Adapter for 1.16.x
+ */
 public class BundleLibAdapter16 implements BundleLibAdapter<Packet<PacketListenerPlayOut>> {
 
     @Override
