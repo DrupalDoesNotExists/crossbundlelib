@@ -39,6 +39,7 @@ Minecraft versions via adapters and Gradle multi-project builds.
 * [Using API](#using-api)
 * [What problems does it solve?](#what-problems-does-it-solve)
 * [Core concept](#core-concept)
+* [A bit of issues](#a-bit-of-issues)
 * [Licensing and contributing](#licensing-and-contributing)
 * [Special thanks](#special-thanks)
 
@@ -140,6 +141,21 @@ As splitters are present in every version starting (probably even sooner) from 1
 So to replicate the bundle behavior, BundleLib joins bundled packets to the single TCP packet
 (that's a simplified Nagle's algorithm, a.k.a. Nagling).
 As a client receives all the needed packets at once, the latency between handling them is minimal.
+
+## A bit of issues
+
+This section is only applicable for the replicating adapters as it describes the replication mechanism issues.
+
+As you may notice, the client also uses the "tick" principle to handle some of the packets received from the server.
+The majority of packets are handled instantly,
+but some of them are "deferred": changes such as velocities are applied only the next tick, etc.
+
+Native bundles actually execute all the incoming packets at the same time,
+and this makes a guarantee that handlers schedule their actions on the same tick.
+
+But when we replicate things, the client does not have support yet:
+some tick-bound packets may get scheduled to the two adjacent ticks instead of the same one. 
+So keep that in mind when designing your solutions.
 
 ## Licensing and contributing
 
