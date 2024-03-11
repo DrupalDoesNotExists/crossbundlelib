@@ -4,6 +4,9 @@
     <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java" />
     <img src="https://img.shields.io/badge/Kotlin-B026EB?&style=for-the-badge&logo=kotlin&logoColor=white" alt="Kotlin" />
     <img src="https://img.shields.io/badge/gradle-salad?style=for-the-badge&logo=gradle" alt="Gradle" />
+    <a href="https://jitpack.io/#DrupalDoesNotExists/crossbundlelib">
+        <img src="https://img.shields.io/jitpack/version/com.github.DrupalDoesNotExists/crossbundlelib?style=for-the-badge&logo=Jitpack&labelColor=34495e" alt="JitPack">
+    </a>
 </div>
 
 ---
