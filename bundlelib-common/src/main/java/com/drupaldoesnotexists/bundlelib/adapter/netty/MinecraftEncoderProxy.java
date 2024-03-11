@@ -28,6 +28,12 @@ public class MinecraftEncoderProxy<PACKET, BUNDLE extends Bundle<PACKET>,
     private final Method encoderMethod;
     private final WRITER writer;
 
+    public boolean acceptOutboundMessage(Object msg) {
+        // TODO: This fix is a quick solution and should be reworked to understand
+        //       why the issue #1 really happens.
+        return true;
+    }
+
     /**
      * .ctor
      * @param minecraftEncoder Minecraft default encoder handler.
