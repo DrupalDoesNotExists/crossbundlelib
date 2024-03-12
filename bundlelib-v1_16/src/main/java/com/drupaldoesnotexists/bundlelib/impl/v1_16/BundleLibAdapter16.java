@@ -7,7 +7,6 @@ import com.drupaldoesnotexists.bundlelib.adapter.SequentialBundleWriter;
 import com.drupaldoesnotexists.bundlelib.adapter.netty.CommonChannelInjector;
 import io.netty.channel.Channel;
 import net.minecraft.server.v1_16_R3.Packet;
-import net.minecraft.server.v1_16_R3.PacketListenerPlayOut;
 import org.bukkit.Bukkit;
 import org.bukkit.craftbukkit.v1_16_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
@@ -16,10 +15,10 @@ import org.jetbrains.annotations.NotNull;
 /**
  * Adapter for 1.16.x
  */
-public class BundleLibAdapter16 implements BundleLibAdapter<Packet<PacketListenerPlayOut>> {
+public class BundleLibAdapter16 implements BundleLibAdapter<Packet<?>> {
 
     @Override
-    public @NotNull BundleFactory<Packet<PacketListenerPlayOut>> getBundleFactory() {
+    public @NotNull BundleFactory<Packet<?>> getBundleFactory() {
         return new Bundle16Factory();
     }
 

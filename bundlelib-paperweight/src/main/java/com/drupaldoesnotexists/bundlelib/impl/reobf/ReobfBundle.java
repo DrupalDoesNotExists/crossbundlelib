@@ -14,19 +14,19 @@ import org.jetbrains.annotations.NotNull;
  * INTERNAL USE ONLY!
  * CAN'T BE USED AS A STANDALONE ADAPTER!
  */
-public class ReobfBundle extends IterableBundle<Packet<ClientGamePacketListener>>
+public class ReobfBundle extends IterableBundle<Packet<?>>
         implements Packet<ClientGamePacketListener> {
 
     /**
      * .ctor
      * @param packets Packets to bundle.
      */
-    public ReobfBundle(Iterable<Packet<ClientGamePacketListener>> packets) {
+    public ReobfBundle(Iterable<Packet<?>> packets) {
         super(packets);
     }
 
     @Override
-    public @NotNull Packet<ClientGamePacketListener> asPacket() {
+    public @NotNull Packet<?> asPacket() {
         return this;
     }
 

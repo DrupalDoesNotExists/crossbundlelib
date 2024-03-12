@@ -22,10 +22,10 @@ import java.util.Arrays;
  * INTERNAL USE ONLY!
  * CAN'T BE USED AS A STANDALONE ADAPTER!
  */
-public abstract class ReobfLibAdapter implements BundleLibAdapter<Packet<ClientGamePacketListener>> {
+public abstract class ReobfLibAdapter implements BundleLibAdapter<Packet<?>> {
 
     @Override
-    public @NotNull BundleFactory<Packet<ClientGamePacketListener>> getBundleFactory() {
+    public @NotNull BundleFactory<Packet<?>> getBundleFactory() {
         return new ReobfBundleFactory();
     }
 

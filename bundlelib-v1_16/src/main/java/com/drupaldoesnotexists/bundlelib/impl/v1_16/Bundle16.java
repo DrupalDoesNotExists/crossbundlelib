@@ -6,23 +6,21 @@ import net.minecraft.server.v1_16_R3.PacketDataSerializer;
 import net.minecraft.server.v1_16_R3.PacketListenerPlayOut;
 import org.jetbrains.annotations.NotNull;
 
-import java.io.IOException;
-
 /**
  * .internal
  */
-public class Bundle16 extends IterableBundle<Packet<PacketListenerPlayOut>> implements Packet<PacketListenerPlayOut> {
+public class Bundle16 extends IterableBundle<Packet<?>> implements Packet<PacketListenerPlayOut> {
 
     /**
      * .ctor
      * @param packets .ignored
      */
-    public Bundle16(Iterable<Packet<PacketListenerPlayOut>> packets) {
+    public Bundle16(Iterable<Packet<?>> packets) {
         super(packets);
     }
 
     @Override
-    public @NotNull Packet<PacketListenerPlayOut> asPacket() {
+    public @NotNull Packet<?> asPacket() {
         return this;
     }
 

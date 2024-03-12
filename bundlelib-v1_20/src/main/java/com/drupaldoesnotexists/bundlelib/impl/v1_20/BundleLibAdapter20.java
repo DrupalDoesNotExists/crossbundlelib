@@ -14,10 +14,10 @@ import org.jetbrains.annotations.NotNull;
 /**
  * Adapter for 1.20.x
  */
-public class BundleLibAdapter20 implements BundleLibAdapter<Packet<ClientGamePacketListener>> {
+public class BundleLibAdapter20 implements BundleLibAdapter<Packet<?>> {
 
     @Override
-    public @NotNull BundleFactory<Packet<ClientGamePacketListener>> getBundleFactory() {
+    public @NotNull BundleFactory<Packet<?>> getBundleFactory() {
         return new NativeBundleFactory();
     }
 
