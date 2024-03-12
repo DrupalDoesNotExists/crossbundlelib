@@ -3,7 +3,6 @@ package com.drupaldoesnotexists.bundlelib.impl.reobf;
 import com.drupaldoesnotexists.bundlelib.adapter.Bundle;
 import com.drupaldoesnotexists.bundlelib.adapter.BundleFactory;
 import net.minecraft.network.protocol.Packet;
-import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -14,10 +13,10 @@ import org.jetbrains.annotations.NotNull;
  * INTERNAL USE ONLY!
  * CAN'T BE USED AS A STANDALONE ADAPTER!
  */
-public class ReobfBundleFactory implements BundleFactory<Packet<ClientGamePacketListener>> {
+public class ReobfBundleFactory implements BundleFactory<Packet<?>> {
 
     @Override
-    public @NotNull Bundle<Packet<ClientGamePacketListener>> createBundle(@NotNull Iterable<Packet<ClientGamePacketListener>> packets) {
+    public @NotNull Bundle<Packet<?>> createBundle(@NotNull Iterable<Packet<?>> packets) {
         return new ReobfBundle(packets);
     }
 
