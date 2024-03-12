@@ -31,7 +31,7 @@ public abstract class ReobfLibAdapter implements BundleLibAdapter<Packet<?>> {
 
     @Override
     public @NotNull ChannelInjector getChannelInjector() {
-        return new CommonChannelInjector<>(new SequentialBundleWriter<>());
+        return new CommonChannelInjector<>(new SequentialBundleWriter<Packet<?>, ReobfBundle>());
     }
 
     @Override
