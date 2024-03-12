@@ -25,7 +25,7 @@ public class CommonChannelInjector<PACKET, BUNDLE extends Bundle<PACKET>,
         WRITER extends BundleWriter<PACKET, BUNDLE>> implements ChannelInjector {
 
     private static final String MINECRAFT_ENCODER_NAME = "encoder";
-    private static final String PRE_ENCODER_NAME = "prepender";
+    private static final String PRE_ENCODER_NAME = "compress";
 
     private final WRITER writer;
 
