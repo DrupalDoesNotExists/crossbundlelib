@@ -24,7 +24,7 @@ Minecraft versions via adapters and Gradle multi-project builds.
 | 1.19.x            | :white_check_mark: bundlelib-v1_19 | :large_orange_diamond: |
 | 1.18.x            | :white_check_mark: bundlelib-v1_18 | :large_orange_diamond: |
 | 1.17.x            | :white_check_mark: bundlelib-v1_17 | :white_check_mark:     |
-| 1.16.x            | :white_check_mark: bundlelib-v1_16 | :x:                    |
+| 1.16.x            | :white_check_mark: bundlelib-v1_16 | :white_check_mark:     |
 | 1.15.x            | :hammer:                           | :x:                    |
 | 1.14.x            | :hammer:                           | :x:                    |
 | 1.13.x            | :hammer:                           | :x:                    |
