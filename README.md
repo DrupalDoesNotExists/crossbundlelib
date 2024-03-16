@@ -162,6 +162,10 @@ So keep that in mind when designing your solutions.
 
 It is also known that some issues with world desync may occur if block updates are sent inaccurately.
 
+Also note that replication is limited within a single TCP packet size bounds.
+You can stack data up to 64KBs.
+That should be enough for almost all use cases.
+
 ## Licensing and contributing
 
 CrossBundleLib is available under the [MIT license](LICENSE).
