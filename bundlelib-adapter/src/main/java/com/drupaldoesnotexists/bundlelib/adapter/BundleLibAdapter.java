@@ -27,6 +27,12 @@ public interface BundleLibAdapter<PACKET> {
     @NotNull Channel getChannel(Player player);
 
     /**
+     * @param packet Packet.
+     * @return Protocol object.
+     */
+    @NotNull Object getProtocolFor(PACKET packet);
+
+    /**
      * @return Whether this adapter is compatible with the current platform or not.
      */
     boolean isCompatible();
