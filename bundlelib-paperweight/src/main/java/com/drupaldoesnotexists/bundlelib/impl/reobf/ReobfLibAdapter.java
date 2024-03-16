@@ -3,11 +3,10 @@ package com.drupaldoesnotexists.bundlelib.impl.reobf;
 import com.drupaldoesnotexists.bundlelib.adapter.BundleFactory;
 import com.drupaldoesnotexists.bundlelib.adapter.BundleLibAdapter;
 import com.drupaldoesnotexists.bundlelib.adapter.ChannelInjector;
-import com.drupaldoesnotexists.bundlelib.adapter.SequentialBundleWriter;
-import com.drupaldoesnotexists.bundlelib.adapter.netty.CommonChannelInjector;
+import com.drupaldoesnotexists.bundlelib.adapter.netty.CommonNettyPipelineReconstructor;
 import io.netty.channel.Channel;
+import net.minecraft.network.ConnectionProtocol;
 import net.minecraft.network.protocol.Packet;
-import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
@@ -31,7 +30,12 @@ public abstract class ReobfLibAdapter implements BundleLibAdapter<Packet<?>> {
 
     @Override
     public @NotNull ChannelInjector getChannelInjector() {
-        return new CommonChannelInjector<>(new SequentialBundleWriter<Packet<?>, ReobfBundle>());
+        return new CommonNettyPipelineReconstructor<>(this);
+    }
+
+    @Override
+    public @NotNull Object getProtocolFor(Packet<?> packet) {
+        return ConnectionProtocol.getProtocolForPacket(packet);
     }
 
     @Override

@@ -5,7 +5,6 @@ import com.drupaldoesnotexists.bundlelib.adapter.BundleLibAdapter;
 import com.drupaldoesnotexists.bundlelib.adapter.ChannelInjector;
 import io.netty.channel.Channel;
 import net.minecraft.network.protocol.Packet;
-import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import org.bukkit.Bukkit;
 import org.bukkit.craftbukkit.v1_20_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
@@ -29,6 +28,11 @@ public class BundleLibAdapter20 implements BundleLibAdapter<Packet<?>> {
     @Override
     public @NotNull Channel getChannel(Player player) {
         return ((CraftPlayer) player).getHandle().connection.connection.channel;
+    }
+
+    @Override
+    public @NotNull Object getProtocolFor(Packet<?> packet) {
+        throw new UnsupportedOperationException("Something very bad happened somewhere! BundleLibAdapter20#getProtocolFor is not intended for calls!");
     }
 
     @Override
