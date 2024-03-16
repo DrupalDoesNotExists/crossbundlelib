@@ -20,9 +20,9 @@ Minecraft versions via adapters and Gradle multi-project builds.
 
 | Minecraft version | BundleLib adapter                  | Tests              |
 |-------------------|------------------------------------|--------------------|
-| 1.20.x            | :white_check_mark: bundlelib-v1_20 | :x:                |
-| 1.19.x            | :white_check_mark: bundlelib-v1_19 | :x:                |
-| 1.18.x            | :white_check_mark: bundlelib-v1_18 | :x:                |
+| 1.20.x            | :white_check_mark: bundlelib-v1_20 | :large_orange_diamond:                |
+| 1.19.x            | :white_check_mark: bundlelib-v1_19 | :large_orange_diamond:                |
+| 1.18.x            | :white_check_mark: bundlelib-v1_18 | :large_orange_diamond:                |
 | 1.17.x            | :white_check_mark: bundlelib-v1_17 | :white_check_mark: |
 | 1.16.x            | :white_check_mark: bundlelib-v1_16 | :x:                |
 | 1.15.x            | :hammer:                           | :x:                |
@@ -33,6 +33,9 @@ Minecraft versions via adapters and Gradle multi-project builds.
 | 1.10.x            | :hammer:                           | :x:                |
 | 1.9.x             | :hammer:                           | :x:                |
 | 1.8.x             | :hammer:                           | :x:                |
+
+> :large_orange_diamond: means that the version is not tested yet, but expected
+> to work as no breaking changes were made.
 
 * [Abstract](#crossbundlelib)
 * [Installation](#installation)
