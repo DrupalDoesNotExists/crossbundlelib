@@ -16,23 +16,23 @@ versions. It uses the selective simplified Nagle's algorithm to join needed pack
 This guarantees that client receives all the needed packets at once and handles them as close as possible. Library supports multiple
 Minecraft versions via adapters and Gradle multi-project builds.
 
-**Now the library is in a state of proofing the concept! Feel free to provide any tests!**
+**Library is expected to work properly!**
 
-| Minecraft version | BundleLib adapter                  |
-|-------------------|------------------------------------|
-| 1.20.x            | :white_check_mark: bundlelib-v1_20 |
-| 1.19.x            | :white_check_mark: bundlelib-v1_19 |
-| 1.18.x            | :white_check_mark: bundlelib-v1_18 |
-| 1.17.x            | :white_check_mark: bundlelib-v1_17 |
-| 1.16.x            | :white_check_mark: bundlelib-v1_16 |
-| 1.15.x            | :hammer:                           |
-| 1.14.x            | :hammer:                           |
-| 1.13.x            | :hammer:                           |
-| 1.12.x            | :hammer:                           |
-| 1.11.x            | :hammer:                           |
-| 1.10.x            | :hammer:                           |
-| 1.9.x             | :hammer:                           |
-| 1.8.x             | :hammer:                           |
+| Minecraft version | BundleLib adapter                  | Tests              |
+|-------------------|------------------------------------|--------------------|
+| 1.20.x            | :white_check_mark: bundlelib-v1_20 | :x:                |
+| 1.19.x            | :white_check_mark: bundlelib-v1_19 | :x:                |
+| 1.18.x            | :white_check_mark: bundlelib-v1_18 | :x:                |
+| 1.17.x            | :white_check_mark: bundlelib-v1_17 | :white_check_mark: |
+| 1.16.x            | :white_check_mark: bundlelib-v1_16 | :x:                |
+| 1.15.x            | :hammer:                           | :x:                |
+| 1.14.x            | :hammer:                           | :x:                |
+| 1.13.x            | :hammer:                           | :x:                |
+| 1.12.x            | :hammer:                           | :x:                |
+| 1.11.x            | :hammer:                           | :x:                |
+| 1.10.x            | :hammer:                           | :x:                |
+| 1.9.x             | :hammer:                           | :x:                |
+| 1.8.x             | :hammer:                           | :x:                |
 
 * [Abstract](#crossbundlelib)
 * [Installation](#installation)
@@ -156,6 +156,8 @@ and this makes a guarantee that handlers schedule their actions on the same tick
 But when we replicate things, the client does not have support yet:
 some tick-bound packets may get scheduled to the two adjacent ticks instead of the same one. 
 So keep that in mind when designing your solutions.
+
+It is also known that some issues with world desync may occur if block updates are sent inaccurately.
 
 ## Licensing and contributing
 
