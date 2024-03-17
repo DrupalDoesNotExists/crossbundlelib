@@ -9,6 +9,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelPipeline;
 import io.netty.handler.codec.MessageToByteEncoder;
 import io.netty.handler.codec.MessageToMessageEncoder;
+import io.netty.util.Attribute;
 import io.netty.util.AttributeKey;
 import org.jetbrains.annotations.NotNull;
 
@@ -45,7 +46,7 @@ public class CommonNettyPipelineReconstructor<PACKET> implements ChannelInjector
         Attribute keys
          */
 
-        static final AttributeKey<Boolean> ATTRIBUTE_INJECTED = AttributeKey.valueOf("bundlelib_injected");
+        static final AttributeKey<Class<?>> ATTRIBUTE_INJECTED = AttributeKey.valueOf("bundlelib_injected");
         static final AttributeKey<Object> ATTRIBUTE_PROTOCOL = AttributeKey.valueOf("protocol");
 
     }
@@ -109,9 +110,7 @@ public class CommonNettyPipelineReconstructor<PACKET> implements ChannelInjector
 
     @Override
     public void inject(@NotNull Channel channel) throws Exception {
-        if (channel.attr(Constants.ATTRIBUTE_INJECTED).compareAndSet(false, true)) {
-            throw new UnsupportedOperationException("Channel is already injected");
-        }
+        if (ensureNotInjected(channel)) return;
 
         // Reconstruct the pipeline
         ChannelPipeline pipeline = channel.pipeline();
@@ -128,6 +127,19 @@ public class CommonNettyPipelineReconstructor<PACKET> implements ChannelInjector
 
         pipeline.addAfter(Constants.MINECRAFT_ENCODER, Constants.BUNDLE_TO_COLLECTION_ENCODER, new Bundle2CollectionEncoder());
         pipeline.addBefore(Constants.MINECRAFT_LENGTH_PREPENDER, Constants.BYTEBUF_COLLECTION_SPLITTER, new ByteBufCollectionSplitter());
+    }
+
+    private boolean ensureNotInjected(Channel channel) {
+        Attribute<Class<?>> attribute = channel.attr(Constants.ATTRIBUTE_INJECTED);
+        Class<?> attrVal = attribute.get();
+        if (attrVal != null && attrVal != this.adapter.getClass()) {
+            throw new ChannelAlreadyInjectedException(
+                    "Channel " + channel.id()
+                            + " is already injected by "
+                            + attribute.get().getName());
+        }
+        attribute.set(this.adapter.getClass());
+        return attrVal == this.adapter.getClass();  // true means should stop quietly
     }
 
 }
