@@ -18,6 +18,8 @@ Minecraft versions via adapters and Gradle multi-project builds.
 
 **Library is expected to work properly on PaperMC! Other platforms such as SpigotMC and PaperMC forks are expected to be supported too.**
 
+> If you find this library useful and appreciate the work of our contributors, :star: star this repository!
+
 | Minecraft version | BundleLib adapter                  | Tests                  |
 |-------------------|------------------------------------|------------------------|
 | 1.20.x            | :white_check_mark: bundlelib-v1_20 | :large_orange_diamond: |
@@ -173,6 +175,12 @@ Any kind of contributions is welcome.
 Feel free to open an issue, discussion or PR.
 
 Discussions are available under [their own tab](https://github.com/DrupalDoesNotExists/crossbundlelib/discussions).
+
+Look at the list of [our amazing contributors](https://contrib.rocks)!
+
+<a href="https://github.com/DrupalDoesNotExists/crossbundlelib/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=DrupalDoesNotExists/crossbundlelib" />
+</a>
 
 ## Special thanks
 
