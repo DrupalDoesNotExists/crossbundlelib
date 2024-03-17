@@ -2,6 +2,7 @@ package com.drupaldoesnotexists.bundlelib.adapter.netty;
 
 import com.drupaldoesnotexists.bundlelib.adapter.Bundle;
 import com.drupaldoesnotexists.bundlelib.adapter.BundleLibAdapter;
+import com.drupaldoesnotexists.bundlelib.adapter.ChannelAlreadyInjectedException;
 import com.drupaldoesnotexists.bundlelib.adapter.ChannelInjector;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.Channel;

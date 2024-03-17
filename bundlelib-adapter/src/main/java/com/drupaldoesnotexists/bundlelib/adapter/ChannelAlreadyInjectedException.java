@@ -1,4 +1,4 @@
-package com.drupaldoesnotexists.bundlelib.adapter.netty;
+package com.drupaldoesnotexists.bundlelib.adapter;
 
 /**
  * Exception that is thrown when channel injector determines that
