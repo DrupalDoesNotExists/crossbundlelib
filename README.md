@@ -16,7 +16,7 @@ versions. It uses the selective simplified Nagle's algorithm to join needed pack
 This guarantees that client receives all the needed packets at once and handles them as close as possible. Library supports multiple
 Minecraft versions via adapters and Gradle multi-project builds.
 
-**Library is expected to work properly!**
+**Library is expected to work properly on PaperMC! Other platforms such as SpigotMC and PaperMC forks are expected to be supported too.**
 
 | Minecraft version | BundleLib adapter                  | Tests                  |
 |-------------------|------------------------------------|------------------------|
