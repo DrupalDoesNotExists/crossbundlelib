@@ -30,7 +30,7 @@ public abstract class ListMessage2MessageEncoderDelegating2Message2BytesEncoder<
     }
 
     @Override
-    protected void encode(ChannelHandlerContext channelHandlerContext, List<I> messages, List<Object> list) throws Exception {
+    protected void encode(ChannelHandlerContext channelHandlerContext, List<I> messages, List<Object> list) {
         List<ByteBuf> output = new ArrayList<>();
         for (I msg : messages) {
             ByteBuf buf = channelHandlerContext.alloc().ioBuffer();
