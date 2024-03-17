@@ -10,6 +10,11 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Message to message encoder abstraction that encodes the list of objects to the list
+ * of byte buffers by delegating encoding to the underlying MessageToBytes encoder.
+ * @param <I> Type of input object
+ */
 public abstract class ListMessage2MessageEncoderDelegating2Message2BytesEncoder<I> extends MessageToMessageEncoder<List<I>> {
 
     private final MessageToByteEncoder<I> original;
