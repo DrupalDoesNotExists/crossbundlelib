@@ -84,44 +84,23 @@ public class CommonNettyPipelineReconstructor<PACKET> implements ChannelInjector
      * be defined here, so it can inherit PACKET type parameter without defining
      * its own.
      */
-    private class PacketCollectionEncoder extends MessageToMessageEncoder<List<PACKET>> {
-
-        private final MessageToByteEncoder<PACKET> original;
-        private final Method encode;
+    private class PacketCollectionEncoder extends ListMessage2MessageEncoderDelegating2Message2BytesEncoder<PACKET> {
 
         public PacketCollectionEncoder(MessageToByteEncoder<PACKET> original) throws NoSuchMethodException {
-            this.original = original;
-
-            // TODO: Add method handles support
-            this.encode = original.getClass().getDeclaredMethod("encode", ChannelHandlerContext.class, Object.class, ByteBuf.class);
-            this.encode.setAccessible(true);
+            super(original);
         }
 
-        private void delegate(ChannelHandlerContext ctx, PACKET packet, ByteBuf buf) {
-            try {
-                encode.invoke(original, ctx, packet, buf);
-            } catch (IllegalAccessException | InvocationTargetException e) {
-                throw new RuntimeException(e);
+        @Override
+        protected void beforeDelegate(ChannelHandlerContext ctx, PACKET msg, List<PACKET> all, List<ByteBuf> list) {
+            if (all.size() > 1) {
+                // Fix: custom packets such as our Bundle do not have any protocol set.
+                Channel channel = ctx.channel();
+                channel.attr(Constants.ATTRIBUTE_PROTOCOL).set(adapter.getProtocolFor(msg));
             }
         }
 
         @Override
-        protected void encode(ChannelHandlerContext ctx, List<PACKET> packets, List<Object> list) {
-            List<ByteBuf> bufList = new ArrayList<>();
-            for (PACKET packet : packets) {
-                ByteBuf buf = ctx.alloc().ioBuffer();
-
-                if (packets.size() > 1) {
-                    // Fix: custom packets such as our Bundle do not have any protocol set.
-                    Channel channel = ctx.channel();
-                    channel.attr(Constants.ATTRIBUTE_PROTOCOL).set(adapter.getProtocolFor(packet));
-                }
-
-                delegate(ctx, packet, buf);
-                bufList.add(buf);
-            }
-            list.add(bufList);
-        }
+        protected void msgEncoded(ChannelHandlerContext ctx, PACKET msg, List<PACKET> all, List<ByteBuf> list) {}
 
     }
 
@@ -142,12 +121,12 @@ public class CommonNettyPipelineReconstructor<PACKET> implements ChannelInjector
         MessageToByteEncoder<ByteBuf> prepender = genericHelper(pipeline, Constants.MINECRAFT_LENGTH_PREPENDER);
         MessageToByteEncoder<ByteBuf> compress = genericHelper(pipeline, Constants.MINECRAFT_COMPRESSOR);
         pipeline.replace(Constants.MINECRAFT_ENCODER, Constants.MINECRAFT_ENCODER, new PacketCollectionEncoder(encoder));
-        pipeline.replace(Constants.MINECRAFT_LENGTH_PREPENDER, Constants.MINECRAFT_LENGTH_PREPENDER, new VarInt21LengthFieldCollectionPrepender(prepender));
+        pipeline.replace(Constants.MINECRAFT_LENGTH_PREPENDER, Constants.MINECRAFT_LENGTH_PREPENDER, new ReleasingDelegatingM2MEncoder(prepender));
 
         // NOTE: Paper uses a custom compressor, and We can't remove it from the pipeline as then it closes
         //       the native resources and can't really work anymore. We leave it behind as it doesn't receive
         //       packets anyway because of the type parameter matching.
-        pipeline.addAfter(Constants.MINECRAFT_COMPRESSOR, Constants.COLLECTION_COMPRESSOR, new CompressionCollectionEncoder(compress));
+        pipeline.addAfter(Constants.MINECRAFT_COMPRESSOR, Constants.COLLECTION_COMPRESSOR, new ReleasingDelegatingM2MEncoder(compress));
 
         pipeline.addAfter(Constants.MINECRAFT_ENCODER, Constants.BUNDLE_TO_COLLECTION_ENCODER, new Bundle2CollectionEncoder());
         pipeline.addBefore(Constants.MINECRAFT_LENGTH_PREPENDER, Constants.BYTEBUF_COLLECTION_SPLITTER, new ByteBufCollectionSplitter());
