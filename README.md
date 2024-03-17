@@ -68,9 +68,10 @@ As BundleLib uses a custom version-, adapter- and, therefore,
 platform-compliant wrapper around bundles, sometimes it requires to
 inject a custom Netty encoder, so it could delegate to a custom bundle writing mechanism.
 
-Injection can be done only once per channel, so developers have to find a way to synchronize with
-other plugins. Check out [CrossBundleLib Injector](https://github.com/DrupalDoesNotExists/crossbundlelib-injector) that serves as a
-PaperMC plugin and does injecting by himself.
+Injection can be done only once per channel, so `ChannelAlreadyInjectedException` is expected
+to be thrown.
+Common adapter implementation also checks if previously injected adapter is the same as currently used
+and if it is, then injection is canceled quietly.
 
 Do note that the Player channel is unreachable during the `PlayerLoginEvent`,
 so You have to schedule the task with scheduler or use some later
