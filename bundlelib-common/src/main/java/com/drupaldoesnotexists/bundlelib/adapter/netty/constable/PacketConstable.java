@@ -5,19 +5,20 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 public class PacketConstable {
 
     private final ConcurrentLinkedQueue<PacketWindow> scheduledWindows = new ConcurrentLinkedQueue<>();
+    private PacketWindow lastWindow;
 
     public PacketWindow getScheduledWindow() {
         return scheduledWindows.peek();
     }
 
     public void schedule(PacketWindow window) {
-        PacketWindow end = getScheduledWindow();
-        if (window.kind() == PacketWindowKind.SINGLE && end.kind() == window.kind()) {
+        if (window.kind() == PacketWindowKind.SINGLE && lastWindow.kind() == window.kind()) {
             // Stack singular windows as 1 object
-            window.size().addAndGet(window.size().get());
+            lastWindow.size().addAndGet(window.size().get());
         } else {
             // Otherwise, add a new object to the end
             scheduledWindows.add(window);
+            lastWindow = window;
         }
     }
 
